@@ -12,8 +12,8 @@ Case studies
 
 + [dirty-checking](#user-content-dirty-checking)
 + automatic event registration
-+ observable models
 + delegate events
++ observable models
 + two-way data binding
 + proxy
 + observer
@@ -29,6 +29,17 @@ Case studies
 # Dirty Checking
 
 Dirty checking can be done by checking each key-value pairs for changes or by listening to model changes in setters and getters.
+
+# Automatic Event Registration (AER)
+
++ Register all components that might listen to something.
++ Register all events they might listen to.
++ For each listener method among the components, automatically bind the event to it.
+
+
+# Super-patterns
+
+A combination of different design patterns are called super-patterns
 
 # Session 
 

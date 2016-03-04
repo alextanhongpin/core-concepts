@@ -59,3 +59,8 @@ function MVCInterface () {
 
 var SomeComponent = new MVCInterface();
 ```
+
+
+# Centralized Dispatcher
+
+Monitor all events from different components' controller. Components should not communicate with one another `directly`. The communication should be monitored by a centralized dispatcher. Any events that should be shared should be registered to the centralized dispatcher during the initialization of the components.

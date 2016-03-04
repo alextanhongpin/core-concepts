@@ -1,5 +1,13 @@
 # Core-concepts in buidling JavaScript Frameworks
 
+Structure
+
++ MVC (Model-View-Controller)
++ MVP (Model-View-Presenter)
++ MVVM (Model-View-ViewModel)
++ MV* (Model-View-*)
++ HMVC (Hierachical Model-View-Controller)
+
 Case studies
 
 + [dirty-checking](#user-content-dirty-checking)
@@ -16,9 +24,17 @@ Case studies
 + dom tranversing
 + components
 + mixins
-
++ session 
 
 # Dirty Checking
+
+Dirty checking can be done by checking each key-value pairs for changes or by listening to model changes in setters and getters.
+
+# Session 
+
+Similar to Meteor's implementation of getting/setting the model across pages. Using the window.sessionStorage allows changes to be reflected on other tabs when a user carry out actions. The problem is how to remove the data that is no longer in used.
+
+# Boilerplate MVC
 
 ```javascript
 
@@ -30,59 +46,5 @@ function MVCInterface () {
   }
 }
 
-const TabComponent = (function () {
-
-
-  
-  // create a new mvc component
-  let Tab = new MVCInterface();
-  
-  
-  Tab.Model.defaults = {
-    index: 0
-  }
-  
-  Tab.Model.isDirty = function (index) {
-    return this.model.defaults.index === index;
-  }
-  
-  
-  // targets a tab
-  Tab.View.tabs = $('.tabs');
-  Tab.Controller.initialize = function () {
-    this.bindEvents();
-  }
-  Tab.Controller.bindEvents = function () {
-    Tab.View.tabs.click(this.onClickTabs.bind(this));
-  } 
-  
-  Tab.Controller.unbindEvents = function () {
-    Tab.View.tabs.unbind();
-  }
-  
-  Tab.Controller.onClickTabs = function (evt) {
-    const index = $(evt.currentTarget).index();
-    // compare the current index and the selected index
-    // update only if they are different
-    if (Tab.Model.isDirty()) return;
-    // update if not dirty
-    Tab.Model.defaults.index = index;
-  }
-  
-  
-  
-  return {
-    start: function () {
-      // initialize the controller
-      Tab.Controller.initialize();
-    },
-    end: function () {
-      Tab.Controller.unbindEvents();
-    }
-  }
-})();
-
-
-TabComponent.start();
-
+var SomeComponent = new MVCInterface();
 ```

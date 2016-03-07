@@ -1,6 +1,6 @@
 # Core-concepts in buidling JavaScript Frameworks
 
-Structure
+##Structure
 
 + MVC (Model-View-Controller)
 + MVP (Model-View-Presenter)
@@ -8,7 +8,7 @@ Structure
 + MV* (Model-View-*)
 + HMVC (Hierachical Model-View-Controller)
 
-Case studies
+##Case studies
 
 + [dirty-checking](#user-content-dirty-checking)
 + automatic event registration
@@ -25,6 +25,7 @@ Case studies
 + components
 + mixins
 + session 
++ functional reactive programming (FRP)
 
 # Dirty Checking
 

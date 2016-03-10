@@ -26,27 +26,30 @@
 + mixins
 + session 
 + functional reactive programming (FRP)
++ dependency injection
++ centralized router
++ components registry
 
-# Dirty Checking
+### Dirty Checking
 
 Dirty checking can be done by checking each key-value pairs for changes or by listening to model changes in setters and getters.
 
-# Automatic Event Registration (AER)
+### Automatic Event Registration (AER)
 
 + Register all components that might listen to something.
 + Register all events they might listen to.
 + For each listener method among the components, automatically bind the event to it.
 
 
-# Super-patterns
+### Super-patterns
 
 A combination of different design patterns are called super-patterns
 
-# Session 
+### Session 
 
 Similar to Meteor's implementation of getting/setting the model across pages. Using the window.sessionStorage allows changes to be reflected on other tabs when a user carry out actions. The problem is how to remove the data that is no longer in used.
 
-# Boilerplate MVC
+### Boilerplate MVC
 
 ```javascript
 
@@ -62,6 +65,12 @@ var SomeComponent = new MVCInterface();
 ```
 
 
-# Centralized Dispatcher
+### Centralized Dispatcher
 
-Monitor all events from different components' controller. Components should not communicate with one another `directly`. The communication should be monitored by a centralized dispatcher. Any events that should be shared should be registered to the centralized dispatcher during the initialization of the components.
+Monitor all events from different components' controller. Components should not communicate with one another `directly`. The communication should be monitored by a centralized dispatcher. Any events that should be shared should be registered to the centralized dispatcher during the initialization of the components. Events can be `registered`, `subscribed` or `unsubscribed`.
+
+### Centralized Components Registry
+
+A HTML page is normally composed of a main `View` and several other `Subviews` and `Components`. The difference between `View` and `Components` is the role they play. `Views`, IMHO is responsible for the layouts (positioning, display) of the page, and can hold `Components`. `Components` are mainly responsible for the functionality/interaction within the page.
+
+The rendering of `Subviews` can be determined by using a centralized `Router`. It's best to have one controller that can register/start/stop components on the page.

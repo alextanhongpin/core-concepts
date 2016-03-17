@@ -29,6 +29,7 @@
 + dependency injection
 + centralized router
 + components registry
++ client side vs server side routing (what, and why)
 
 ### Dirty Checking
 

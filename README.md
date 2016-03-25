@@ -30,6 +30,7 @@
 + centralized router
 + components registry
 + client side vs server side routing (what, and why)
++ unidirectional data flow
 
 ### Dirty Checking
 

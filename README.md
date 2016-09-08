@@ -31,6 +31,13 @@
 + components registry
 + client side vs server side routing (what, and why)
 + unidirectional data flow
++ webworker
++ service worker
++ webcomponents
++ customelements
++ htmlimports
++ htmltemplates
++ css4 gridlayout
 
 ### Dirty Checking
 
